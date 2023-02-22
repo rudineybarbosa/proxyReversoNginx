@@ -27,4 +27,5 @@ services:
 
 networks:
   netRudi:
+    name: netRudi
     driver: bridge
