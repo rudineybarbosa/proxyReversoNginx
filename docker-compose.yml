@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  node:
+    build: 
+      context: ./node
+      dockerfile: Dockerfile
+    image: rudineybarbosa/node-express
+    container_name: node
+    networks:
+      - netRudi
+    ports:
+      - "3000:3000"      
+
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: rudineybarbosa/nginx-rudi
+    container_name: nginx
+    networks:
+      - netRudi
+    ports:
+      - "8080:80"
+    depends_on:
+      - node
+
+networks:
+  netRudi:
+    driver: bridge
