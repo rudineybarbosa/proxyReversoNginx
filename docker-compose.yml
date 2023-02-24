@@ -31,7 +31,7 @@ services:
       - "3000:3000" 
     depends_on:
       - db
-    entrypoint: npm install && node index.js
+    entrypoint: npm install node index.js
 
   nginx:
     build: 
