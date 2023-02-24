@@ -12,6 +12,8 @@ services:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    networks:
+      - netRudi
 
   node:
     build: 
@@ -28,6 +30,8 @@ services:
     depends_on:
       - db
     entrypoint: node index.js
+    networks:
+      - netRudi
 
   nginx:
     build: 
@@ -39,4 +43,10 @@ services:
       - "8080:80"
     depends_on:
       - node
+    networks:
+      - netRudi      
 
+networks:
+  netRudi:
+    name: netRudi
+    driver: bridge
