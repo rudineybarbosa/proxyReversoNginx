@@ -22,14 +22,14 @@ app.get('/', (req, resp) => {
     if (!err) {
       var names = "";
       rows.forEach(row => {
-        names = names + `<li>${row.name}</li>`          
+        names = names + `<li>${row.name}</li>`
       })
 
       resp.send(`
         <h1>Full Cycle Rocks!</h1>
         <br>
         <ul>`
-          +          
+          +
           names
           +
         `</ul>`
@@ -37,8 +37,10 @@ app.get('/', (req, resp) => {
     } else {
       console.log(err);
     }
-  });    
+  });
   connection.end()
+  
+  //resp.send("<h1>Full Cycle Rocks!</h1>");
 })
 
 app.listen(porta, ()=> {
