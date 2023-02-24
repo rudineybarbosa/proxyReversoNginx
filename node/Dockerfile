@@ -2,9 +2,9 @@ FROM node:15 as stage1
 
 WORKDIR /usr/src/app
 
-COPY . .
-
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
