@@ -29,10 +29,9 @@ services:
     tty: true
     depends_on:
       - db
-    entrypoint: node index.js
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh node index.js
     networks:
       - netRudi
-    restart: always      
 
   nginx:
     build: 
